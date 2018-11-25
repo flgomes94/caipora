@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% load leaflet_tags %}
+{% load staticfiles %}
+<html>
+  <head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <style>
+        .leaflet-container { height: 30%; }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+        function main_map_init (map, options) {
+            var dataurl = '{% url "data" %}';
+            var coordenada1 = Number('{{ object.geom.coordinates.1 }}'.replace(',','.'));
+            var coordenada2 = Number('{{ object.geom.coordinates.0 }}'.replace(',','.'));
+            console.log(coordenada1);
+            console.log(coordenada2);
+
+            fetch(dataurl)
+          .then(function(resp) {
+            return resp.json();
+          })
+          .then(function(data) {
+            L.geoJson(data, {
+              onEachFeature: function onEachFeature(feature, layer) {
+                var props = feature.properties;
+                var content = `<img width="300" src="${props.picture_url}"/><h3>${props.assunto}</h3><p>${props.descricao}</p>`;
+                layer.bindPopup(content);
+            }}).addTo(map);
+          });
+
+            var latlng = L.latLng(coordenada1, coordenada2);
+            map.flyTo(latlng,15);
+
+
+        }
+    </script>
+
+    {% leaflet_map "map" callback="main_map_init" %}
+
+
+    <h1>{{ object.assunto }}</h1>
+    <h2>{{ object.data }}</h2>
+  {{ object.geom }}
+  {{ object.geom.coordinates.0 }}
+  {{ object.geom.coordinates.1 }}
+
+  </body>
+</html>
+
+{% endblock %}

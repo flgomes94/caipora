@@ -1,0 +1,42 @@
+{% load leaflet_tags %}
+<html>
+  <head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <style>
+        .leaflet-container { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+        function main_map_init (map, options) {
+            var dataurl = '{% url "data" %}';
+
+            fetch(dataurl)
+          .then(function(resp) {
+            return resp.json();
+          })
+          .then(function(data) {
+            L.geoJson(data, {
+              onEachFeature: function onEachFeature(feature, layer) {
+                var props = feature.properties;
+                var content = `<img width="300" src="${props.picture_url}"/><h3>${props.assunto}</h3><p>${props.descricao}</p>`;
+                layer.bindPopup(content);
+            }}).addTo(map);
+          });
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+
+            function showPosition(position) {
+                var latlng2 = L.latLng(position.coords.latitude, position.coords.longitude);
+                map.flyTo(latlng2,10);
+            }
+
+
+        }
+    </script>
+    {% leaflet_map "main" callback="main_map_init" %}
+  </body>
+</html>
