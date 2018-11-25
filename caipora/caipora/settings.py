@@ -127,17 +127,11 @@ STATIC_ROOT = 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Here you tell django to look for a folder named 'assets'
-]
-
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (-14.235, -51.9253),
     'DEFAULT_ZOOM': 4,
     'MIN_ZOOM': 4,
     'MAX_ZOOM': 20,
-    'MINIMAP': True,
-    'RESET_VIEW': False,
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
