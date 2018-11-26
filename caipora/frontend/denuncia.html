@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/denuncia.css">
+    
+    <title>Caipora - Denúncia</title>
+</head>
+<body>
+    <header id="header">
+        <nav class="ui inverted secondary text menu">
+            <div class="ui container">
+                <div id="logo" class="inverted item">Caipora</div>
+                <div class="right menu">
+                    <a href="index.html#header-img" class="item">Home</a>
+                    <a href="index.html#sobre" class="item">Sobre</a>
+                    <a href="index.html#como-funciona" class="item">Como funciona</a>
+                    <a href="denuncia.html" class="item">
+                        <button class="ui inverted green button">Denunciar</button>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+   
+
+    <div id="form-manifestacao" class="ui vertical stripe segment">
+        <div class="ui container form">
+            <h1 class="ui header">Faça sua denúncia aqui!</h1>
+            <div class="field">
+                <div id="mapa" class="ui segment">
+
+                </div>
+            </div>
+            <div class="three fields">
+                <div class="field">
+                    <label>Endereço</label>
+                    <input type="text">
+                </div>
+            
+                <div class="field">
+                    <label>Data</label>
+                    <input type="text">
+                </div>
+                <div class="field">
+                    <label>Selecionar Foto</label>
+                    <input type="file">
+                </div>
+            </div>
+
+            <div class="three fields">
+                <div class="field">
+                    <label>Assunto</label>
+                    <input type="text">
+                    <div class="content">(Escolha um título para sua manifestação. Quanto mais direto, mais fácil será para mobilizar sua causa. Ex:UPA sem geldadeira!)</div>
+                </div>
+            
+                <div class="field">
+                    <label>Orgão</label>
+                    <input type="text">
+                    <div class="content">Sua Manifestação tem um órgão responsável. Pode ser importante apontar uma organização ao qual considere que seja a recomendada para tentar solucionar o seu problema. Ex: Prefeitura de Salvador</div>
+                </div>
+                <div class="field">
+                    <label>Tipo</label>
+                    <select class="ui dropdown">
+                        <option value="Denuncia">Denúncia</option>
+                        <option value="Reclamacao">Reclamação</option>
+                        <option value="Solicitacao">Solicitação</option>
+                        <option value="Sugestao">Sugestão</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Descreva aqui mais informações</label>
+                <textarea></textarea>
+            </div>
+            
+            <button class="ui large button">Manifeste-se!</button>
+        </div>
+    </div>
+    
+
+    <footer class="ui inverted vertical stripe footer segment">
+        <div id="rodape" class="ui container grid">
+            <div class="four wide column">
+                © Caipora, 2018
+            </div>
+            <div class="four wide right floated right aligned column">
+                <a href="#header" class="link-top">Topo</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/popper.js"></script>
+</body>
+</html>
