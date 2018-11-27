@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    transition:all 1s ease;
+}
+
+#header {
+    background-color: rgba(24, 24, 24, 0.9);
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    z-index: 9;
+    position: relative;
+    top: 0;
+    padding-top: 5px;
+}
+
+#header nav { 
+    padding: 1em 0;
+    margin: 0;
+}
+
+
+.ui.header {
+    font-size: 2.5em;
+    font-family: Ubuntu;
+    padding: 10px 0;
+}
+#logo {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+    font-size: 2em;
+    font-family: Ubuntu;
+}
+
+#header .right.menu .item {
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    color: white;
+    padding: 0 20px;
+}
+
+#form-manifestacao {
+    padding: 2em 0;
+}
+
+#mapa {
+    border-radius: 3px;
+    height: 400px;
+}
+
+footer {
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #333 !important;
+}
+
+.link-top {
+    color: white;
+}
+
+.link-top:hover {
+    color: aquamarine;
+    text-decoration: none
+}

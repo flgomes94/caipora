@@ -19,6 +19,7 @@ class Manifestacao(models.Model):
     highlights = models.IntegerField(default=0)
     foto = models.ImageField(blank=True, null=True)
     descricao = models.TextField()
+    endereco = models.TextField()
     geom = PointField()
 
     def __unicode__(self):

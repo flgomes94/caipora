@@ -4,6 +4,7 @@
 {% load staticfiles %}
 <html>
   <head>
+    <link rel="stylesheet" href="{% static 'frontend/css/denuncia.css' %}">
     {% leaflet_js %}
     {% leaflet_css %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -28,7 +29,8 @@
             L.geoJson(data, {
               onEachFeature: function onEachFeature(feature, layer) {
                 var props = feature.properties;
-                var content = `<img width="300" src="${props.picture_url}"/><h3>${props.assunto}</h3><p>${props.descricao}</p>`;
+                var content = `<img width="300" src="${props.picture_url}"/><h3>${props.assunto}</h3><p>${props.descricao}</p> <a href=${props.pk} class="item">
+                            <button class="ui inverted blue button">+ INFO</button>`;
                 layer.bindPopup(content);
             }}).addTo(map);
           });

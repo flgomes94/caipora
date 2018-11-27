@@ -7,9 +7,9 @@ from . import views
 from .models import Manifestacao
 
 urlpatterns = [
-    path('denuncia/', TemplateView.as_view(template_name='manifestacao/mapa.html'), name='home'),
+    path('denuncia/', TemplateView.as_view(template_name='manifestacao/mapa.html'), name='mapa_principal'),
     path('denuncia/nova', views.nova_denuncia.as_view(),name='nova_denuncia'),
     path('denuncia/<int:pk>/',views.detalhe_manifestcao.as_view(), name='manifestacao'),
-    path('data.geojson', GeoJSONLayerView.as_view(model=Manifestacao, properties=('assunto', 'descricao', 'picture_url')), name='data'),
-    path('', TemplateView.as_view(template_name='base/base.html')),
+    path('data.geojson', GeoJSONLayerView.as_view(model=Manifestacao, properties=('pk','assunto', 'descricao', 'picture_url')), name='data'),
+    path('', TemplateView.as_view(template_name='manifestacao/home.html'), name='home'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
